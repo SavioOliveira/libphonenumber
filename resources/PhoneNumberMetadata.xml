@@ -3287,7 +3287,9 @@
           <leadingDigits>
             (?:
               [189][1-9]|
-              2[12478]
+              2[12478]|
+              3[1-578]|
+              7[13-579]
             )9
           </leadingDigits>
           <format>$1 $2-$3</format>
@@ -3342,23 +3344,25 @@
         <!-- Since 2012, Brazil has been migrating from 10 to 11 digits by inserting a 9 before the
              last 8 digits. The following pattern is divided into 3 sections: ranges for which the
              migration has been completed, ranges which are in transition, and ranges which are
-             still in the old format. (Ranges which were supposed to have been deprecated in
-             Oct. 2013 are still working as of May 2015.) Note that mobile radio services are
-             still 10 digits, with the subscriber number (the last 8 digits) beginning with 7. -->
+             still in the old format. (As of Oct. 2015, ranges deprecated prior to that date have
+             been verified to be deactivated.) Note that mobile radio services are still 10 digits,
+             with the subscriber number (the last 8 digits) beginning with 7. -->
         <nationalNumberPattern>
-          1[1-9](?:
+          (?:
+            1[1-9]|
+            2[12478]|
+            [89][1-9]
+          )(?:
             7|
             9\d
           )\d{7}|
           (?:
-            2[12478]|
-            [89][1-9]
+            3[1-578]|
+            7[13-579]
           )9?[6-9]\d{7}|
           (?:
-            3[1-578]|
             [46][1-9]|
-            5[1-5]|
-            7[13-579]
+            5[1-5]
           )[6-9]\d{7}
         </nationalNumberPattern>
         <possibleNumberPattern>\d{10,11}</possibleNumberPattern>
